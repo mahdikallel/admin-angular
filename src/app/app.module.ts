@@ -9,12 +9,15 @@ import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ProductComponent } from './pages/products/liste/productes/productes.component';
+import { ProductService } from './pages/products/liste/product.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
-  },
+  },ProductService
   ],
   bootstrap: [AppComponent]
 })

@@ -3,15 +3,15 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Product } from '../../../../shared/Entities/product';
 import { ProductService } from '../product.service';
-//import { product } from '../prod';
 
 @Component({
   selector: 'app-productes',
   templateUrl: './productes.component.html',
   styleUrls: ['./productes.component.css'],
   providers: [ProductService]
-
 })
+
+
 export class ProductComponent implements OnInit, OnDestroy {
   selectedproduct: Product;
 

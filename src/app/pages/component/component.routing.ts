@@ -140,6 +140,13 @@ export const ComponentsRoutes: Routes = [
         title: 'Card',
         urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Card'}]
       }
+    },{
+      path: 'Produits',
+      component: ProductComponent,
+      data: {
+        title: 'Card',
+        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Card'}]
+      }
     }]
   }
 ];

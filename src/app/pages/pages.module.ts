@@ -7,12 +7,14 @@ import { NavigationComponent } from '../shared/header-navigation/navigation.comp
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
 import { ProductService } from './products/liste/product.service';
+import { ProductComponent } from './products/liste/productes/productes.component';
 
 
 @NgModule({
     imports: [
         CommonModule,
         PagesRoutingModule
+        
     ],
     declarations: [
         PageComponent,
