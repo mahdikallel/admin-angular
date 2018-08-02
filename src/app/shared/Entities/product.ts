@@ -3,5 +3,4 @@ export class Product {
      nom: String;
      prix: number;
      prixAchat: number;
-
 }
