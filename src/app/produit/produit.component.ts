@@ -49,15 +49,4 @@ export class ProductComponent implements OnInit, OnDestroy {
   onSelect(product: Product): void {
     this.selectedproduct = product;
   }
-
-  getproductes(): void {
-    this.prodService.getproductes()
-      .subscribe(productes => this.productes = productes);
-  }
-
-
-  récapproductes(): void {
-    this.prodService.getproductes()
-      .subscribe(productes => this.productes = productes);
-  }
 }

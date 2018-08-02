@@ -23,7 +23,7 @@
                 <li class="nav-devider"></li>
                 <li [class.active]="showMenu === 'starter'">
                     <a routerLink="/starter" (click)="addExpandClass('starter')" [routerLinkActive]="['router-link-active']"><i class="mdi mdi-file"></i><span class="hide-menu">Starter Page</span></a>
-                </li>                
+                </li>
                 <li class="nav-small-cap">UI Components</li>
                 <li [class.active]="showMenu === 'component'">
                     <a class="has-arrow" href="javascript:void(0)" (click)="addExpandClass('component')" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Components</span></a>
@@ -46,7 +46,7 @@
                 <li [class.active]="showMenu === 'Produits'">
                         <a class="has-arrow" href="javascript:void(0)" (click)="addExpandClass('Produits')" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Produits</span></a>
                         <ul aria-expanded="false" class="collapse" [class.in]="showMenu === 'Produits'">
-                                <li><a routerLink="/component/Produits" [routerLinkActive]="['router-link-active']">liste</a></li> 
+                                <li><a routerLink="/component/produits" [routerLinkActive]="['router-link-active']">liste</a></li>
                         </ul>
 
 

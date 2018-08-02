@@ -6,7 +6,6 @@ import {Observable} from 'rxjs';
 import {of} from 'rxjs/observable/of';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
-import {HttpResponse} from 'selenium-webdriver/http';
 import {Product} from '../shared/Entities/product';
 
 

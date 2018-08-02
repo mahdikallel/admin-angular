@@ -1,16 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SpinnerComponent } from './shared/spinner.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {SpinnerComponent} from './shared/spinner.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 
-import { OrderComponent } from './order/order.component';
+import {OrderComponent} from './order/order.component';
 import {ProductComponent} from './produit/produit.component';
 import {ProductService} from './produit/produit.service';
 
@@ -18,15 +18,12 @@ import {ProductService} from './produit/produit.service';
   declarations: [
     AppComponent,
     SpinnerComponent,
-    OrderComponent,
-    ProductComponent
+    OrderComponent
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
-  },
-    ProductService
-  ],
+  },ProductService],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -37,4 +34,5 @@ import {ProductService} from './produit/produit.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
