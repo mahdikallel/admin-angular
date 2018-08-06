@@ -47,4 +47,17 @@
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
-  
+
+/*table { background-color:lightblue;}*/
+
+td,tr, delete, update {
+  text-align: center;
+  vertical-align: middle;
+}
+td
+{
+  height: 40px;
+  width: 40px;
+}
+
+

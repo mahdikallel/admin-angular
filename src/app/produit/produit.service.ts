@@ -1,12 +1,10 @@
 import {Injectable} from '@angular/core';
 
-import {Observable} from 'rxjs';
-
-
 import {of} from 'rxjs/observable/of';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {Product} from '../shared/Entities/product';
+import {Observable} from 'rxjs/Observable';
 
 
 @Injectable()
@@ -17,13 +15,17 @@ export class ProductService {
   }
 
 
-  getProducts() {
-    this.http.get('http://localhost:9090/Produits').subscribe(
-      sucess => {
-        console.log(sucess);
-      }, error => {
-        console.log(error);
-      });
+  getProducts(): Observable<Product[]> {
+
+    // this.http.get('http://localhost:9090/Produits').subscribe(
+    //   sucess => {
+    //     console.log(sucess);
+    //   }, error => {
+    //     console.log(error);
+    //   });
+
+    return this.http.get<Product[]>('http://localhost:9090/Produits');
+
   }
 
 
@@ -39,7 +41,6 @@ export class ProductService {
 
 
   updateProduct(product: Product) {
-
     this.http.put('http://localhost:9090/Produits', product).subscribe(
       sucess => {
         console.log(sucess);
@@ -63,8 +64,10 @@ export class ProductService {
   deleteProduct(id) {
     this.http.delete('http://localhost:9090/Produits', id).subscribe(
       sucess => {
+        console.log('product ', id);
         console.log(sucess);
       }, error => {
+        console.log('product ', id);
         console.log(error);
       }
     );

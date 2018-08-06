@@ -23,6 +23,7 @@ import { NgbdtypeheadBasic } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import {ProductComponent} from "../../produit/produit.component";
+import {OrderComponent} from '../../order/order.component';
 
 @NgModule({
   imports: [

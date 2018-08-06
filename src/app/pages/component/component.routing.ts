@@ -18,6 +18,7 @@ import {ButtonsComponent} from './buttons/buttons.component';
 import {ProductComponent} from "../../produit/produit.component";
 
 
+
 export const ComponentsRoutes: Routes = [
   {
     path: '',
