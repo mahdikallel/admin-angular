@@ -5,7 +5,7 @@
     <!--<img class="card-img-top img-responsive" src="assets/images/big/img1.jpg" alt="Card image cap">-->
     <div class="card-body">
       <h4 class="card-title">Produit</h4>
-      <table class=".table">
+      <table  class="table ">
 
         <thead>
 
@@ -15,7 +15,6 @@
           <th>Prix d'achat</th>
           <th>Modifier</th>
           <th>Supprimer</th>
-          <th>Test modal</th>
         </tr>
         </thead>
         <tbody>
@@ -26,59 +25,49 @@
           <td>{{product.prix}}</td>
           <td>{{product.prixAchat}}</td>
           <td>
-            <!--<div class="col-lg-5 col-md-8 ">-->
-            <button type="button" class="btn btn-block btn-outline-success "
-                    onClick="window.open('http://localhost:4200/#/component/modal')">update
+            <div class="col-lg-6 col-md-4">
+            <button type="button" class="btn btn-block btn-outline-success " routerLink="/component/order" [routerLinkActive]="['router-link-active']"> update
             </button>
-            <!--</div>-->
+            </div>
           </td>
           <td>
-            <!--<div class="col-lg-5 col-md-8">-->
-            <button type="button" class="btn btn-block btn-outline-warning"
-                    onClick="window.open('http://localhost:4200/#/component/modal')">delete
-            </button>
-            <!--</div>-->
-          </td>
-          <td>
+            <div class="col-lg-6 col-md-4">
+            <button type="button" data-toggle="modal" data-target="#infos" class="btn btn-block btn-outline-warning">delete</button>
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Launch demo modal
-            </button>
-          </td>
+            </div>
+
+            <div class="modal" id="infos">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Supprimer un produit</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                      <span>&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                   voulez-vous vraiment supprimer le produit ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-primary  " (click)="deleteProduct(product.id)" data-dismiss="modal" >Oui</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
         </tr>
 
         </tbody>
 
       </table>
-      <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+
     </div>
+
   </div>
 
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-       aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </div>
+
+
 

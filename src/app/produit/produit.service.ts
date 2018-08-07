@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 import {of} from 'rxjs/observable/of';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {Product} from '../shared/Entities/product';
 import {Observable} from 'rxjs/Observable';
@@ -50,7 +50,7 @@ export class ProductService {
     );
   }
 
-  getProducById(id: Number) {
+  getProductById(id: Number) {
 
     this.http.get('http://localhost:9090/Produits').subscribe(
       sucess => {
@@ -62,16 +62,18 @@ export class ProductService {
   }
 
   deleteProduct(id) {
-    this.http.delete('http://localhost:9090/Produits', id).subscribe(
-      sucess => {
-        console.log('product ', id);
-        console.log(sucess);
-      }, error => {
-        console.log('product ', id);
-        console.log(error);
-      }
-    );
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.delete('http://localhost:9090/Produits/' + id,{headers: headers, responseType: 'text'});
   }
+
+  private extractData(res: Response) {
+    console.log(res);
+    return res.text() ? res.json() : {};
+    ;
+  }
+
 
 }
 

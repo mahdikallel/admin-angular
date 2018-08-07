@@ -1,6 +1,9 @@
-import{Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Product} from '../shared/Entities/product';
 import {ProductService} from './produit.service';
+import {OrderComponent} from '../order/order.component';
+import {isSuccess} from 'angular-in-memory-web-api';
+import {createScope} from '@angular/core/src/profile/wtf_impl';
 
 
 @Component({
@@ -52,7 +55,9 @@ export class ProductComponent implements OnInit, OnDestroy {
 
 
   getAllProduct() {
+    console.log('getAllProduct');
     this.prodService.getProducts().subscribe(sucess => {
+      console.log('Get all Products  sucess');
       this.products = sucess;
     }, error => {
       console.log('Get all Products not available' + error);
@@ -63,6 +68,19 @@ export class ProductComponent implements OnInit, OnDestroy {
   addProduct(product: Product) {
     /*let product = product;
     product = this.product;*/
+  }
+
+
+  deleteProduct(id: number) {
+    this.prodService.deleteProduct(id).subscribe(sucess => {
+        console.log('deleteProduct');
+        this.getAllProduct();
+      }, error => {
+        console.log(error);
+      }, () => {
+      }
+    );
+
   }
 
 
