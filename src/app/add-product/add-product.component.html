@@ -1,0 +1,108 @@
+<div class="card">
+  <div class="card-body">
+
+    <form novalidate
+          [formGroup]="myform"
+          (ngSubmit)="onSubmit()">
+
+      <fieldset>
+        <div class="form-group" ng-class="{'formError': myform.nom.$invalid }">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-3">
+                <label>Nom du produit </label>
+              </div>
+              <div class="col-md-4">
+                <input type="text"
+                       class="form-control"
+                       formControlName="nom" [(ngModel)]="product.nom">
+
+              </div>
+              <div class="col-md-3">
+                <small *ngIf="formError.nom && !myform.controls.nom.valid" class="text-danger">
+                  Champ doit etre rempli .
+                </small>
+                <small *ngIf="myform.controls.nom.valid" class="text-success">
+                  Validé.
+                </small>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+            <br>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                  <label>Prix de vente </label>
+                </div>
+                <div class="col-md-4">
+                  <input type="number"
+                         class="form-control"
+                         formControlName="prix" [(ngModel)]="product.prix">
+                </div>
+                <div class="col-md-3">
+
+                  <small *ngIf="formError.prix && !myform.controls.prix.valid" class="text-danger">
+                    Champ doit etre rempli .
+                  </small>
+                  <small *ngIf="myform.controls.prix.valid" class="text-success">
+                    Validé.
+                  </small>
+                </div>
+                <div class="col-md-3"></div>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                  <label>Prix d'achat </label>
+                </div>
+                <div class="col-md-4">
+                  <input type="number"
+                         class="form-control"
+                         formControlName="prixAchat" [(ngModel)]="product.prixAchat">
+                </div>
+
+                <div class="col-md-4">
+                  <small *ngIf="formError.prixAchat && !myform.controls.prixAchat.valid"class="text-danger">
+                    Champ doit etre rempli .
+                  </small>
+                  <small *ngIf="myform.controls.prixAchat.valid" class="text-success">
+                    Validé.
+                  </small>
+
+                </div>
+                <div class="col-md-4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+          </div>
+          <div class="col">
+          </div>
+          <div class="col">
+          </div>
+          <div class="col">
+
+            <a routerLink="/component/produits" [routerLinkActive]="['router-link-active']">
+              <button class="col-lg-9 col-md-4" type="button" class="btn btn-info">Annuler</button>
+            </a>
+            <button type="submit" class="btn btn-primary" (click)="saveProduct(product)">Submit</button>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

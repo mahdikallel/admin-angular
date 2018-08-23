@@ -14,11 +14,15 @@ import {OrderComponent} from './order/order.component';
 import {ProductComponent} from './produit/produit.component';
 import {ProductService} from './produit/produit.service';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     SpinnerComponent,
-    OrderComponent
+    OrderComponent,
+
+
   ],
   providers: [{
     provide: LocationStrategy,

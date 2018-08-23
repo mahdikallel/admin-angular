@@ -23,7 +23,8 @@ import { NgbdtypeheadBasic } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import {ProductComponent} from "../../produit/produit.component";
-import {OrderComponent} from '../../order/order.component';
+import{AddProductComponent} from '../../add-product/add-product.component';
+import{UpdateproductComponent} from '../../updateproduct/updateproduct.component';
 
 @NgModule({
   imports: [
@@ -50,7 +51,9 @@ import {OrderComponent} from '../../order/order.component';
     NgbdtypeheadBasic,
     CardsComponent,
     ButtonsComponent,
-    ProductComponent
+    ProductComponent,
+    AddProductComponent,
+    UpdateproductComponent
   ]
 })
 

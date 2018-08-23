@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {Product} from '../shared/Entities/product';
 import {Observable} from 'rxjs/Observable';
+import {BACKEND_URL} from '../shared/environment';
 
 
 @Injectable()
@@ -16,66 +17,60 @@ export class ProductService {
 
 
   getProducts(): Observable<Product[]> {
-
-    // this.http.get('http://localhost:9090/Produits').subscribe(
-    //   sucess => {
-    //     console.log(sucess);
-    //   }, error => {
-    //     console.log(error);
-    //   });
-
-    return this.http.get<Product[]>('http://localhost:9090/Produits');
-
+    console.log(BACKEND_URL);
+    return this.http.get<Product[]>(BACKEND_URL);
   }
 
-
-  saveProduct(product: Product) {
-    this.http.post('http://localhost:9090/Produits', product).subscribe(
-      sucess => {
-        console.log(sucess);
-      }, error => {
-        console.log(error);
-      }
-    );
-  }
-
-
-  updateProduct(product: Product) {
-    this.http.put('http://localhost:9090/Produits', product).subscribe(
-      sucess => {
-        console.log(sucess);
-      }, error => {
-        console.log(error);
-      }
-    );
-  }
-
-  getProductById(id: Number) {
-
-    this.http.get('http://localhost:9090/Produits').subscribe(
-      sucess => {
-        console.log(sucess);
-      }, error => {
-        console.log(error);
-      }
-    );
-  }
 
   deleteProduct(id) {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.delete('http://localhost:9090/Produits/' + id,{headers: headers, responseType: 'text'});
+    return this.http.delete(BACKEND_URL + id, {headers: headers, responseType: 'text'});
   }
 
   private extractData(res: Response) {
-    console.log(res);
     return res.text() ? res.json() : {};
-    ;
+  }
+
+  // tryGetJson = async (resp) => {
+  //   return new Promise((resolve) => {
+  //     if (resp) {
+  //       resp.json().then(json => resolve(json)).catch(() => resolve(null));
+  //     } else {
+  //       resolve(null);
+  //     }
+  //   });
+  // };
+
+  parseJSON(response) {
+    return response.text() ? JSON.parse(response) : null;
+  }
+
+  saveProduct(product) {
+    let test = JSON.stringify(product);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(BACKEND_URL, JSON.parse(test));
+  }
+
+  updateProduct(product) {
+    let test = JSON.stringify(product);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.put(BACKEND_URL, JSON.parse(test));
+  }
+
+  getProductById(id) {
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.get(BACKEND_URL + id, {headers: headers, responseType: 'text'});
   }
 
 
+
+
 }
-
-
-

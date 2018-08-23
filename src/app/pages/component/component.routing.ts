@@ -16,7 +16,8 @@ import {NgbdtypeheadBasic} from './typehead/typehead.component';
 import {CardsComponent} from './card/card.component';
 import {ButtonsComponent} from './buttons/buttons.component';
 import {ProductComponent} from '../../produit/produit.component';
-import {OrderComponent} from '../../order/order.component';
+import {AddProductComponent} from '../../add-product/add-product.component';
+import {UpdateproductComponent} from '../../updateproduct/updateproduct.component';
 
 
 export const ComponentsRoutes: Routes = [
@@ -149,7 +150,23 @@ export const ComponentsRoutes: Routes = [
         data: {
           title: 'Produit',
           urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'Produit'}, {title: 'Produit'}]
+        }},
+      {
+        path: 'ajoutproduit',
+        component: AddProductComponent,
+        data: {
+          title: 'ajoutProduit',
+          urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'ajoutProduit'}, {title: 'ajoutProduit'}]
         }
       }]
+  },
+  {
+    path: 'modifierProduit/:id',
+    component: UpdateproductComponent,
+    data: {
+      title: 'modifierProduit',
+      urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'modifierProduit'}, {title: 'modifierProduit'}]
+    }
   }
-];
+
+]
